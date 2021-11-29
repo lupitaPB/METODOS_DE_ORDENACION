@@ -5,6 +5,8 @@
  */
 package ClasesMO;
 
+import PruebasMO.Burbuja;
+
 /**
  *
  * @author lupit
@@ -14,13 +16,22 @@ package ClasesMO;
     private int []  valores ;
     private  int limiteSuperior;
     private int  size  ;
+    private int a[];
+
+    public DatosDesordenados(int[] a) {
+        this.a = valores;
+    }
+
+    public int[] getA() {
+        return a;
+    }
 
     public DatosDesordenados  ( int  limite , int  size ) {
        this. valores =  new int [size];
         this. limiteSuperior = limite;
         this.size = size;
     }
-    
+
     public  void  agregarDato ( int  valor ) {
         valores [size] = valor;
         size ++ ;
@@ -31,10 +42,12 @@ package ClasesMO;
     }
     
     public  void  generarValores () {
-        for ( int i = 0 ; i < valores.length; i ++ ) {
+            for ( int i = 0 ; i < valores.length; i ++ ) {
            double aleatorio =  Math. random () * limiteSuperior;
             valores [i] = ( int ) aleatorio +  1 ;
+            
         }
+           
     }
     
     public  int  getSize () {

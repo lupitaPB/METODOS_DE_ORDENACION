@@ -12,7 +12,6 @@ import static PruebasMO.BurbujaDes.bubbleSortCa;
 import static PruebasMO.BurbujaDes.bubbleSortDe;
 import static PruebasMO.BurbujaDes.bubbleSortt;
 import static PruebasMO.QuickSort.ordenar;
-import static PruebasMO.Radix.Radix;
 import static PruebasMO.ShellSort.ordenarShell;
 import static PruebasMO.QuickSort.ordenarD;
 import java.util.Random;
@@ -21,7 +20,8 @@ import static PruebasMO.QuickSort.ordenarC;
 import static PruebasMO.QuickSortDes.ordenarCa;
 import static PruebasMO.QuickSortDes.ordenarDe;
 import static PruebasMO.QuickSortDes.ordenarr;
-import static PruebasMO.Radix.RadixD;
+import static PruebasMO.Radix.radixSort;
+import static PruebasMO.RadixDes.radixSortD;
 import static PruebasMO.ShellSort.ordenarShellD;
 import static PruebasMO.ShellSortDes.Shell;
 import static PruebasMO.ShellSortDes.ShellC;
@@ -34,7 +34,7 @@ import static PruebasMO.ShellSortDes.ShellD;
 public class lista extends javax.swing.JFrame {
 
     int n;
-
+int [] alm;
     /**
      * Creates new form lista
      */
@@ -72,6 +72,10 @@ public class lista extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +98,9 @@ public class lista extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 14)); // NOI18N
         jLabel3.setText("DIMENSION DE TU LISTA :");
 
+        jTextField1.setForeground(new java.awt.Color(0, 0, 242));
+        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 51), new java.awt.Color(204, 255, 102), new java.awt.Color(204, 255, 153), new java.awt.Color(204, 255, 153)));
+        jTextField1.setSelectedTextColor(new java.awt.Color(255, 51, 102));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -122,10 +129,10 @@ public class lista extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(254, 254, 254)
                 .addComponent(jLabel7)
-                .addGap(127, 127, 127))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,41 +199,62 @@ public class lista extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         jLabel1.setText("ORDENAR DE FORMA :");
 
+        jLabel8.setText("TIEMPO DE EJECUCION :");
+
+        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 255, 153), new java.awt.Color(204, 255, 204)));
+
+        jLabel9.setText("TIEMPO DE EJECUCION DESCENDENTE:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(jButton1)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jScrollPane2)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel5)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(56, 56, 56)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(59, 59, 59)
+                                            .addComponent(jLabel1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jButton2))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(34, 34, 34)
+                                            .addComponent(jButton1)
+                                            .addGap(128, 128, 128)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(53, 53, 53)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(15, 15, 15)
+                                            .addComponent(jLabel8))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel3))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,15 +274,24 @@ public class lista extends javax.swing.JFrame {
                         .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jButton2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton1)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
@@ -272,9 +309,18 @@ public class lista extends javax.swing.JFrame {
         double[] arreglo1 = new double[n];
         char[] arreglo2 = new char[n];
         Random random = new Random();
+
         String opc = (String) jComboBox1.getSelectedItem();
         if (jRadioButton1.isSelected()) {
             if (opc.equals("BURBUJA")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
                     arreglo2[i] = (char) (random.nextInt(26) + 'a');
                     for (int j = 0; j < i; j++) {
@@ -290,8 +336,17 @@ public class lista extends javax.swing.JFrame {
                 for (char x : arreglo2) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField2.setText("" + dif);
             }
             if (opc.equals("QUICKSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 char longitud = (char) arreglo2.length;
                 for (int i = 0; i < n; i++) {
                     arreglo2[i] = (char) (random.nextInt(26) + 'a');
@@ -308,6 +363,7 @@ public class lista extends javax.swing.JFrame {
                 for (char x : arreglo2) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField2.setText("" + dif);
             }
             if (opc.equals("RADIX")) {
                 for (int i = 0; i < n; i++) {
@@ -321,7 +377,7 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea1.append(" " + x);
                 }
-                Radix(arreglo);
+                radixSort(arreglo);
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
@@ -347,27 +403,44 @@ public class lista extends javax.swing.JFrame {
         //NUMEROS ENTEROS
         if (jRadioButton2.isSelected()) {
             if (opc.equals("BURBUJA")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
                         }
                     }
                 }
+                alm=arreglo;
                 for (int x : arreglo) {
                     jTextArea1.append(" " + x);
                 }
                 bubbleSort(arreglo);
                 for (int x : arreglo) {
-
                     jTextArea2.append(" " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
             if (opc.equals("QUICKSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 int longitud = arreglo.length;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -381,10 +454,19 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
             if (opc.equals("RADIX")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -394,14 +476,23 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea1.append(" " + x);
                 }
-                Radix(arreglo);
+                radixSort(arreglo);
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
             if (opc.equals("SHELLSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -415,14 +506,23 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
-            JOptionPane.showMessageDialog(null, "selecciono numero enteros");
+            
         }
         //NUMEROS DECIMALES
         if (jRadioButton3.isSelected()) {
             if (opc.equals("BURBUJA")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -436,11 +536,20 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
             if (opc.equals("QUICKSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 double longitud = arreglo1.length;
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 10) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -454,10 +563,12 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
+            /*
             if (opc.equals("RADIX")) {
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -472,9 +583,18 @@ public class lista extends javax.swing.JFrame {
                     jTextArea2.append("  " + x);
                 }
             }
+             */
             if (opc.equals("SHELLSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -488,6 +608,7 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
+                jTextField2.setText(" " + dif);
             }
 
         }
@@ -504,7 +625,8 @@ public class lista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         jTextArea1.setText("");
+        
+        jTextArea1.setText("");
         jTextArea2.setText("");
         n = Integer.parseInt(jTextField1.getText());
         int[] arreglo = new int[n];
@@ -514,6 +636,14 @@ public class lista extends javax.swing.JFrame {
         String opc = (String) jComboBox1.getSelectedItem();
         if (jRadioButton1.isSelected()) {
             if (opc.equals("BURBUJA")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
                     arreglo2[i] = (char) (random.nextInt(26) + 'a');
                     for (int j = 0; j < i; j++) {
@@ -529,8 +659,17 @@ public class lista extends javax.swing.JFrame {
                 for (char x : arreglo2) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
             if (opc.equals("QUICKSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 char longitud = (char) arreglo2.length;
                 for (int i = 0; i < n; i++) {
                     arreglo2[i] = (char) (random.nextInt(26) + 'a');
@@ -547,8 +686,17 @@ public class lista extends javax.swing.JFrame {
                 for (char x : arreglo2) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
             if (opc.equals("RADIX")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
                     arreglo[i] = (int) (Math.random() * 100) + 1;
                     for (int j = 0; j < i; j++) {
@@ -560,12 +708,21 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea1.append(" " + x);
                 }
-                Radix(arreglo);
+                radixSort(arreglo);
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                 jTextField3.setText(" " + dif);
             }
             if (opc.equals("SHELLSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
                     arreglo2[i] = (char) (random.nextInt(26) + 'a');
                     for (int j = 0; j < i; j++) {
@@ -581,13 +738,23 @@ public class lista extends javax.swing.JFrame {
                 for (char x : arreglo2) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
+             
         }
         //NUMEROS ENTEROS
         if (jRadioButton2.isSelected()) {
             if (opc.equals("BURBUJA")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -602,11 +769,20 @@ public class lista extends javax.swing.JFrame {
 
                     jTextArea2.append(" " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
             if (opc.equals("QUICKSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 int longitud = arreglo.length;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -620,10 +796,19 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
             if (opc.equals("RADIX")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -633,14 +818,23 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea1.append(" " + x);
                 }
-                Radix(arreglo);
+                radixSortD(arreglo);
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                 jTextField3.setText(" " + dif);
             }
             if (opc.equals("SHELLSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    arreglo[i] = (int) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo[i] == arreglo[j]) {
                             i--;
@@ -654,14 +848,23 @@ public class lista extends javax.swing.JFrame {
                 for (int x : arreglo) {
                     jTextArea2.append(" " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
-            JOptionPane.showMessageDialog(null, "selecciono numero enteros");
+            
         }
         //NUMEROS DECIMALES
         if (jRadioButton3.isSelected()) {
             if (opc.equals("BURBUJA")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -675,11 +878,20 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
             if (opc.equals("QUICKSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 double longitud = arreglo1.length;
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 10) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -693,10 +905,12 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
+            /*
             if (opc.equals("RADIX")) {
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -706,14 +920,23 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea1.append("  " + x);
                 }
-                RadixD(arreglo1);
+                radixSort(arreglo1);
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
             }
+             */
             if (opc.equals("SHELLSORT")) {
+                long inicio = System.nanoTime();
+                for (int i = 0; i < 1000; i++) {
+                    for (int j = 0; j < 1000; j++) {
+                        new Random().nextDouble();
+                    }
+                }
+                long fin = System.nanoTime();
+                double dif = (double) (fin - inicio) * 1.0e-9;
                 for (int i = 0; i < n; i++) {
-                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    arreglo1[i] = (double) (Math.random() * 2000) + 1;
                     for (int j = 0; j < i; j++) {
                         if (arreglo1[i] == arreglo1[j]) {
                             i--;
@@ -727,6 +950,7 @@ public class lista extends javax.swing.JFrame {
                 for (double x : arreglo1) {
                     jTextArea2.append("  " + x);
                 }
+                jTextField3.setText(" " + dif);
             }
 
         }
@@ -780,6 +1004,8 @@ public class lista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1;
@@ -790,5 +1016,7 @@ public class lista extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

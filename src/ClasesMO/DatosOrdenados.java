@@ -13,10 +13,12 @@ public class DatosOrdenados {
 
      private int[] valores ;
 
-     public DatosOrdenados  ( int [] valores ) {
-        this. valores = valores;
-    }
     
+
+    public DatosOrdenados(int[] valores) {
+        this.valores = valores;
+    }
+   
     public  int  getSize () {
         return valores.length;
     }

@@ -15,24 +15,24 @@ public class RadixDes {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      int n = 5 ;
-        int [] arreglo =  new int [n];
-        for ( int i = 0 ; i < n; i ++ ) {
-            arreglo [i] = ( int ) ( Math. random() *  100 ) +  1 ;
+        int n = 5;
+        int[] arreglo = new int[n];
+        for (int i = 0; i < n; i++) {
+            arreglo[i] = (int) (Math.random() * 100) + 1;
         }
-         System.out.println("Arreglo original : ");
-        for ( int x : arreglo) {
-           System.out.println(" "+ x);
-        }  
-        radixSort(arreglo);
+        System.out.println("Arreglo original : ");
+        for (int x : arreglo) {
+            System.out.println(" " + x);
+        }
+        radixSortD(arreglo);
         System.out.println("Arreglo ordenado : ");
-        for ( int x : arreglo) {
-            System.out.println(" "+ x);
+        for (int x : arreglo) {
+            System.out.println(" " + x);
         }
-       
-       
+
     }
-    public static void radixSort(int[] arr) {
+
+    public static void radixSortD(int[] arr) {
 		int[][] bucket = new int[10][arr.length];
 		int[] bucketOfElement = new int[10];
 		int max=0;
@@ -52,16 +52,16 @@ public class RadixDes {
 				bucket[digit][bucketOfElement[digit]] = arr[i];
 				bucketOfElement[digit]++; //1
 			}
-			int index = 0;
+			int index = arr.length-1;
 			// Leer los elementos en el depósito y reasignarlos a arr
 			for(int j = 0;j<10;j++) {
-				for(int k = 0 ; k<bucketOfElement[j];k++) {//3
+				for(int k = bucketOfElement[j]-1 ; k>=0;k--) {//3
 					arr[index] = bucket[j][k];
-					index++;//2
+					index--;
 				}
 				bucketOfElement[j]=0;// Borrar el número de elementos en cada uno
 			}
 			}
 		}
-    
+
 }

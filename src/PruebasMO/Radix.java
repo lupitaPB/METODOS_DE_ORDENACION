@@ -26,7 +26,7 @@ public class Radix {
         for ( int x : arreglo) {
            System.out.println(" "+ x);
         }  
-        Radix(arreglo);
+        radixSort(arreglo);
         System.out.println("Arreglo ordenado : ");
         for ( int x : arreglo) {
             System.out.println(" "+ x);
@@ -35,75 +35,68 @@ public class Radix {
        
     }
 
-    static void Radix(int[] arreglo) {
-        int x,l,j;
-        for (x = Integer.SIZE - 1; x >= 0; x--) {
-            int auxiliar[] = new int[arreglo.length];
-            j = 0;
-            for (l = 0; l < arreglo.length; l++) {
-                boolean mover = (arreglo[l] >> x) <= 0;
-                if (x == 0 ? !mover : mover) {
-                    auxiliar[j] = arreglo[l];
-                    j++;
-                } else {
-                    arreglo[l - j] = arreglo[l];
-                }
-            }
-            for (l = j; l < auxiliar.length; l++) {
-                auxiliar[l] = arreglo[l - j];
-            }
-            arreglo = auxiliar;
-        }
-        //System.out.println("Arreglo ordenado");
-        //for (int i = 0; i < arreglo.length; i++) {
-          //  System.out.println(" "+arreglo[i]);
-            
-        //}
-    }
-    static void RadixD(double[] arreglo) {
-        int x,l,j;
-        for (x = Integer.SIZE - 1; x >= 0; x--) {
-            double auxiliar[] = new double [arreglo.length];
-            j = 0;
-            for (l = 0; l < arreglo.length; l++) {
-                boolean mover = (arreglo[l] << x) >= 0;
-                if (x == 0 ? !mover : mover) {
-                    auxiliar[j] = arreglo[l];
-                    j++;
-                } else {
-                    arreglo[l - j] = arreglo[l];
-                }
-            }
-            for (l = j; l < auxiliar.length; l++) {
-                auxiliar[l] = arreglo[l - j];
-            }
-            arreglo = auxiliar;
-        }
-    }
-     static void RadixC(int arreglo[]) {
-        int x;
-        int l, j;
-        for (x = Integer.SIZE - 1; x >= 0; x--) {
-            int auxiliar[] = new int[arreglo.length];
-            j = 0;
-            for (l = 0; l < arreglo.length; l++) {
-                boolean mover = (arreglo[l] << x) >= 0;
-                if (x == 0 ? !mover : mover) {
-                    auxiliar[j] = arreglo[l];
-                    j++;
-                } else {
-                    arreglo[l - j] = arreglo[l];
-                }
-            }
-            for (l = j; l < auxiliar.length; l++) {
-                auxiliar[l] = arreglo[l - j];
-            }
-            arreglo = auxiliar;
-        }
-        //System.out.println("Arreglo ordenado");
-        //for (int i = 0; i < arreglo.length; i++) {
-          //  System.out.println(" "+arreglo[i]);
-            
-        //}
-    }
+   public static void radixSort(int[] arr) {
+		int[][] bucket = new int[10][arr.length];
+		int[] bucketOfElement = new int[10];
+		int max=0;
+		// Encuentra el elemento más grande en la matriz
+		for(int i = 0 ; i < arr.length;i++) {
+			if(arr[i]>max){
+				max = arr[i];
+			}
+		}
+		// Calcula el número de bits del elemento más grande
+		int maxLength = (max+"").length();
+		for(int m = 0,n=1;m<maxLength;m++,n*=10) {
+			// Coloca los números en arr en los cubos correspondientes según sus unidades, decenas, centenas, etc.
+			for(int i = 0 ; i < arr.length;i++) {//4
+				int digit = arr[i]/n%10;
+				// Asignar el valor de arr [i] a la matriz bidimensional en el depósito
+				bucket[digit][bucketOfElement[digit]] = arr[i];
+				bucketOfElement[digit]++; //1
+			}
+			int index = 0;
+			// Leer los elementos en el depósito y reasignarlos a arr
+			for(int j = 0;j<10;j++) {
+				for(int k = 0 ; k<bucketOfElement[j];k++) {//3
+					arr[index] = bucket[j][k];
+					index++;//2
+				}
+				bucketOfElement[j]=0;// Borrar el número de elementos en cada uno
+			}
+			}
+		}
+   /*
+   public static void radixSortD(double[] arr) {
+		double[][] bucket = new double[10][arr.length];
+		duble[] bucketOfElement = new double[10];
+		double max=0;
+		// Encuentra el elemento más grande en la matriz
+		for(int i = 0 ; i < arr.length;i++) {
+			if(arr[i]>max){
+				max = arr[i];
+			}
+		}
+		// Calcula el número de bits del elemento más grande
+		int maxLength = (max+"").length();
+		for(int m = 0,n=1;m<maxLength;m++,n*=10) {
+			// Coloca los números en arr en los cubos correspondientes según sus unidades, decenas, centenas, etc.
+			for(int i = 0 ; i < arr.length;i++) {//4
+				double digit = arr[i]/n%10;
+				// Asignar el valor de arr [i] a la matriz bidimensional en el depósito
+				bucket[digit][bucketOfElement[digit]] = arr[i];
+				bucketOfElement[digit]++; //1
+			}
+			int index = 0;
+			// Leer los elementos en el depósito y reasignarlos a arr
+			for(int j = 0;j<10;j++) {
+				for(int k = 0 ; k<bucketOfElement[j];k++) {//3
+					arr[index] = bucket[j][k];
+					index++;//2
+				}
+				bucketOfElement[j]=0;// Borrar el número de elementos en cada uno
+			}
+			}
+		}
+*/
 }
