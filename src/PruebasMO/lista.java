@@ -5,11 +5,35 @@
  */
 package PruebasMO;
 
+import static PruebasMO.Burbuja.bubbleSort;
+import static PruebasMO.Burbuja.bubbleSortC;
+import static PruebasMO.Burbuja.bubbleSortD;
+import static PruebasMO.BurbujaDes.bubbleSortCa;
+import static PruebasMO.BurbujaDes.bubbleSortDe;
+import static PruebasMO.BurbujaDes.bubbleSortt;
+import static PruebasMO.QuickSort.ordenar;
+import static PruebasMO.Radix.Radix;
+import static PruebasMO.ShellSort.ordenarShell;
+import static PruebasMO.QuickSort.ordenarD;
+import java.util.Random;
+import javax.swing.JOptionPane;
+import static PruebasMO.QuickSort.ordenarC;
+import static PruebasMO.QuickSortDes.ordenarCa;
+import static PruebasMO.QuickSortDes.ordenarDe;
+import static PruebasMO.QuickSortDes.ordenarr;
+import static PruebasMO.Radix.RadixD;
+import static PruebasMO.ShellSort.ordenarShellD;
+import static PruebasMO.ShellSortDes.Shell;
+import static PruebasMO.ShellSortDes.ShellC;
+import static PruebasMO.ShellSortDes.ShellD;
+
 /**
  *
  * @author lupit
  */
 public class lista extends javax.swing.JFrame {
+
+    int n;
 
     /**
      * Creates new form lista
@@ -27,51 +51,687 @@ public class lista extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Group1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("GENERAR LISTA :");
-
-        jButton1.setText("GENERADOR");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jComboBox1.setBackground(new java.awt.Color(204, 255, 204));
+        jComboBox1.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BURBUJA", "QUICKSORT", "RADIX", "SHELLSORT" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        jLabel2.setText("METODO DE ORDENACION : ");
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 14)); // NOI18N
+        jLabel3.setText("DIMENSION DE TU LISTA :");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        jLabel4.setText("TU LISTA SE CONFORMARA DE :");
+
+        jLabel5.setFont(new java.awt.Font("Gill Sans MT Ext Condensed Bold", 1, 18)); // NOI18N
+        jLabel5.setText("L I S T A --- O R I G I N A L :");
+
+        jLabel6.setFont(new java.awt.Font("Gill Sans MT Ext Condensed Bold", 1, 18)); // NOI18N
+        jLabel6.setText("L I S T A --- O R D E N A D A :");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+
+        jLabel7.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        jLabel7.setText("METODOS DE ORDENACION");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(127, 127, 127))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
+        );
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+
+        Group1.add(jRadioButton1);
+        jRadioButton1.setText("CARACTERES");
+
+        Group1.add(jRadioButton3);
+        jRadioButton3.setText("NUMEROS DECIMALES");
+
+        Group1.add(jRadioButton2);
+        jRadioButton2.setText("NUMEROS ENTEROS");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jRadioButton2)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jRadioButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jButton1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        jButton1.setText("LIMNPIAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Dubai Light", 1, 12)); // NOI18N
+        jButton2.setText("DESENDENTE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        jLabel1.setText("ORDENAR DE FORMA :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(95, 95, 95)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(jButton1)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton1))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel5))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(263, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        n = Integer.parseInt(jTextField1.getText());
+        int[] arreglo = new int[n];
+        double[] arreglo1 = new double[n];
+        char[] arreglo2 = new char[n];
+        Random random = new Random();
+        String opc = (String) jComboBox1.getSelectedItem();
+        if (jRadioButton1.isSelected()) {
+            if (opc.equals("BURBUJA")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo2[i] = (char) (random.nextInt(26) + 'a');
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (char x : arreglo2) {
+                    jTextArea1.append(" " + x);
+                }
+                bubbleSortC(arreglo2);
+                for (char x : arreglo2) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("QUICKSORT")) {
+                char longitud = (char) arreglo2.length;
+                for (int i = 0; i < n; i++) {
+                    arreglo2[i] = (char) (random.nextInt(26) + 'a');
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (char x : arreglo2) {
+                    jTextArea1.append(" " + x);
+                }
+                ordenarC(arreglo2, 0, longitud - 1);
+                for (char x : arreglo2) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("RADIX")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                Radix(arreglo);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("SHELLSORT")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo2[i] = (char) (random.nextInt(26) + 'a');
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (char x : arreglo2) {
+                    jTextArea1.append(" " + x);
+                }
+                ShellC(arreglo2);
+                for (char x : arreglo2) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+        }
+        //NUMEROS ENTEROS
+        if (jRadioButton2.isSelected()) {
+            if (opc.equals("BURBUJA")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                bubbleSort(arreglo);
+                for (int x : arreglo) {
+
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("QUICKSORT")) {
+                int longitud = arreglo.length;
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                ordenar(arreglo, 0, longitud - 1);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("RADIX")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                Radix(arreglo);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("SHELLSORT")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                ordenarShell(arreglo);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "selecciono numero enteros");
+        }
+        //NUMEROS DECIMALES
+        if (jRadioButton3.isSelected()) {
+            if (opc.equals("BURBUJA")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                bubbleSortD(arreglo1);
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+            if (opc.equals("QUICKSORT")) {
+                double longitud = arreglo1.length;
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 10) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                ordenarD(arreglo1, 0, (int) (longitud - 1));
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+            if (opc.equals("RADIX")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                RadixD(arreglo1);
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+            if (opc.equals("SHELLSORT")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                ordenarShellD(arreglo1);
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+
+        }
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTextArea1.setText("");
+        jTextArea2.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         jTextArea1.setText("");
+        jTextArea2.setText("");
+        n = Integer.parseInt(jTextField1.getText());
+        int[] arreglo = new int[n];
+        double[] arreglo1 = new double[n];
+        char[] arreglo2 = new char[n];
+        Random random = new Random();
+        String opc = (String) jComboBox1.getSelectedItem();
+        if (jRadioButton1.isSelected()) {
+            if (opc.equals("BURBUJA")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo2[i] = (char) (random.nextInt(26) + 'a');
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (char x : arreglo2) {
+                    jTextArea1.append(" " + x);
+                }
+                bubbleSortCa(arreglo2);
+                for (char x : arreglo2) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("QUICKSORT")) {
+                char longitud = (char) arreglo2.length;
+                for (int i = 0; i < n; i++) {
+                    arreglo2[i] = (char) (random.nextInt(26) + 'a');
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (char x : arreglo2) {
+                    jTextArea1.append(" " + x);
+                }
+                ordenarCa(arreglo2, 0, longitud - 1);
+                for (char x : arreglo2) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("RADIX")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                Radix(arreglo);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("SHELLSORT")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo2[i] = (char) (random.nextInt(26) + 'a');
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo2[i] == arreglo2[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (char x : arreglo2) {
+                    jTextArea1.append(" " + x);
+                }
+                ShellC(arreglo2);
+                for (char x : arreglo2) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+        }
+        //NUMEROS ENTEROS
+        if (jRadioButton2.isSelected()) {
+            if (opc.equals("BURBUJA")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                bubbleSortt(arreglo);
+                for (int x : arreglo) {
+
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("QUICKSORT")) {
+                int longitud = arreglo.length;
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                ordenarr(arreglo, 0, longitud - 1);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("RADIX")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                Radix(arreglo);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            if (opc.equals("SHELLSORT")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo[i] = (int) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo[i] == arreglo[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (int x : arreglo) {
+                    jTextArea1.append(" " + x);
+                }
+                Shell(arreglo);
+                for (int x : arreglo) {
+                    jTextArea2.append(" " + x);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "selecciono numero enteros");
+        }
+        //NUMEROS DECIMALES
+        if (jRadioButton3.isSelected()) {
+            if (opc.equals("BURBUJA")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                bubbleSortDe(arreglo1);
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+            if (opc.equals("QUICKSORT")) {
+                double longitud = arreglo1.length;
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 10) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                ordenarDe(arreglo1, 0, (int) (longitud - 1));
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+            if (opc.equals("RADIX")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                RadixD(arreglo1);
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+            if (opc.equals("SHELLSORT")) {
+                for (int i = 0; i < n; i++) {
+                    arreglo1[i] = (double) (Math.random() * 100) + 1;
+                    for (int j = 0; j < i; j++) {
+                        if (arreglo1[i] == arreglo1[j]) {
+                            i--;
+                        }
+                    }
+                }
+                for (double x : arreglo1) {
+                    jTextArea1.append("  " + x);
+                }
+                ShellD(arreglo1);
+                for (double x : arreglo1) {
+                    jTextArea2.append("  " + x);
+                }
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,9 +769,26 @@ public class lista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup Group1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

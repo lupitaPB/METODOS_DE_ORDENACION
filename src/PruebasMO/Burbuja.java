@@ -5,6 +5,8 @@
  */
 package PruebasMO;
 
+import java.util.Random;
+
 /**
  *
  * @author lupit
@@ -16,6 +18,37 @@ public class Burbuja {
      */
     public  static  void  main ( String []   args ) {
         int n = 10 ;
+         Random random = new Random();
+        char[] arreglo =  new char[n];
+       for ( int i = 0 ; i < n; i ++ ) {
+            arreglo [i] = ( char ) ( random.nextInt(26) + 'a');
+        }
+       for ( char x : arreglo) {
+            System.out.println( "  "  + x);
+        }
+        System.out.println(" ");
+        bubbleSortC (arreglo);
+       for ( char x : arreglo) {
+            System.out.println( "  "  + x);
+        }
+        System.out.println( " " );
+        /*
+        double[] arreglo =  new double [n];
+       for ( int i = 0 ; i < n; i ++ ) {
+            arreglo [i] = ( double ) ( Math. random() *  10 ) +  1 ;
+        }
+       for ( double x : arreglo) {
+            System.out.println( "  "  + x);
+        }
+        System.out.println(" ");
+        bubbleSortD (arreglo);
+       for ( double x : arreglo) {
+            System.out.println( "  "  + x);
+        }
+        System.out.println( " " );
+        */
+       /*
+        int n = 10 ;
         int [] arreglo =  new int [n];
        for ( int i = 0 ; i < n; i ++ ) {
             arreglo [i] = ( int ) ( Math. random() *  100 ) +  1 ;
@@ -24,13 +57,47 @@ public class Burbuja {
             System.out.println( "  "  + x);
         }
         System.out.println(" ");
-        bubbleSort (arreglo);
+        bubbleSortDes (arreglo);
        for ( int x : arreglo) {
             System.out.println( "  "  + x);
         }
         System.out.println( " " );
+*/
     }
-    
+     public  static  void  bubbleSortC ( char [] arreglo ) {
+       int n = arreglo.length;
+        
+        for ( int i = 0 ; i < n - 1 ; i ++ ) {
+            for ( int j = 0 ; j < n - i - 1 ; j ++ ) {
+                
+                if (arreglo [j] > arreglo [j + 1 ]) {
+                    // intercambiar: swap
+                    char temporal = arreglo [j];
+                    arreglo [j] = arreglo [j + 1 ];
+                    arreglo [j + 1 ] = temporal;
+                }
+            }
+        }
+        
+    }
+   
+    public  static  void  bubbleSortD ( double [] arreglo ) {
+        int n = arreglo.length;
+        
+        for ( int i = 0 ; i < n - 1 ; i ++ ) {
+            for ( int j = 0 ; j < n - i - 1 ; j ++ ) {
+                
+                if (arreglo [j] > arreglo [j + 1 ]) {
+                    // intercambiar: swap
+                    double temporal = arreglo [j];
+                    arreglo [j] = arreglo [j + 1 ];
+                    arreglo [j + 1 ] = temporal;
+                }
+            }
+        }
+        
+    }
+   
     public  static  void  bubbleSort ( int [] arreglo ) {
         int n = arreglo.length;
         
@@ -47,4 +114,5 @@ public class Burbuja {
         }
         
     }
+   
 }
